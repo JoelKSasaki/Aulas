@@ -10,7 +10,7 @@ public class velha {
         System.out.println("considerando:");
         for(int i=0;i<3;i++) {
             for (int j=0;j<3;j++) {
-                System.out.print(tab[i][j]);
+                System.out.print("| |" + tab[i][j]);
             }
             System.out.println();
         }
@@ -37,21 +37,33 @@ public class velha {
     public static void moviment(char j, char[][] table) {
         int x = 0;
         int y = 0;
+        int z;
         boolean winner = false;
 
-        while(winner == false) {
+        for(z = 1;z <= 9;z++){
+            if(z % 2 == 0)
+                j = 'X';
+            else
+                j = 'O';
+        }
+
+        while(!winner) {
             table[x][y] = j;
-            System.out.println("Digite aonde deseja jogar: ");
+            System.out.println("Digite a posição da sua peça: ");
             for (x = 0; x < 3; x++) {
                 for (y = 0; y < 3; y++) {
                     System.out.print(table[x][y] + j);
                 }
             }
+
         }
     }
 
-    public static boolean tie(){
-        return false;
+    public static void tie(){
+        System.exit(0);
+    }
+    public static boolean win(){
+        return true;
     }
 }
 
